@@ -1,11 +1,7 @@
 <?php
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\TokenController;
-use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +14,6 @@ use App\Http\Controllers\MessageController;
 |
 */
 
-
-Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/users/auth', AuthController::class);
-    Route::get('/users/{id}', function ($id) {
-        return User::findOrFail($id);
-    });
-  
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
 });
-Route::post('/sanctum/token', TokenController::class);
