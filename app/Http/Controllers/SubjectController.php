@@ -3,19 +3,20 @@
 namespace App\Http\Controllers;
 
 use Inertia\Inertia;
+use App\Models\Subject;
 use Illuminate\Http\Request;
-use App\Models\GameQuizchallenge;
 
-class QuizChallengeController extends Controller
+class SubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       return Inertia::render('Game/QuizChallenge/Index')->with([
-        'data'=>GameQuizchallenge::where('classroom',auth()->user()->classroom)->inRandomOrder()->take(20)->get(),
-       ]);
+       $data=Subject::where('classroom',auth()->user()->classroom)->get();
+        return Inertia::render('Subject/Index')->with([
+            'data'=>$data
+           ]);
     }
 
     /**
@@ -37,7 +38,7 @@ class QuizChallengeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Subject $subject)
     {
         //
     }
@@ -45,7 +46,7 @@ class QuizChallengeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Subject $subject)
     {
         //
     }
@@ -53,7 +54,7 @@ class QuizChallengeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Subject $subject)
     {
         //
     }
@@ -61,7 +62,7 @@ class QuizChallengeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Subject $subject)
     {
         //
     }

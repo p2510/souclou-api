@@ -4,6 +4,7 @@ use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\QuizChallengeController;
 
@@ -42,6 +43,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::resource('/schedule', ScheduleController::class);
     Route::resource('/quiz-challenge', QuizChallengeController::class);
+    Route::resource('/subject', SubjectController::class);
    
 });
 require __DIR__.'/auth.php';

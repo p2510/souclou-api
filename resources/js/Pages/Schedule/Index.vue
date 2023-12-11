@@ -11,7 +11,7 @@ import { ArrowLeftIcon } from "@heroicons/vue/24/solid";
 
 let props = defineProps(["data"]);
 
-let showConfiguration = ref(false);
+let showConfiguration = ref(true);
 let changeShowConfiguration = () => {
     showConfiguration.value = !showConfiguration.value;
 };

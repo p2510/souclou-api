@@ -49,21 +49,24 @@ let ChangeVisibility = () => (menuIsVisible.value = !menuIsVisible.value);
                             class="custom-clip-path w-full h-screen bg-slate-800 absolute"
                         ></div>
                         <div class="flex justify-between items-center p-6 z-40">
-                            <div class="flex items-center w-full gap-2">
-                                <img
-                                    src="https://static.wixstatic.com/media/bf2df3_84ac883c75044766ad226ac8042a8364~mv2.png/v1/fill/w_422,h_480,al_c,lg_1,q_85,enc_auto/bf2df3_84ac883c75044766ad226ac8042a8364~mv2.png"
-                                    alt=""
-                                    class="w-10 h-10 rounded-full"
-                                />
+                            <div class="flex items-center divide-x-2 w-full gap-2">
                                 <div class="space-y-1">
                                     <h4
-                                        class="font-semibold text-sm text-white"
+                                        class="font-semibold text-sm text-white uppercase"
                                     >
-                                        JEAN LUC DUBOIT
+                                       Nom :  {{$page.props.auth.user.name}}
                                     </h4>
                                     <p class="text-xs opacity-90 text-white">
-                                        +225 0161335586
+                                        Classe :  {{$page.props.auth.user.classroom}}
                                     </p>
+                                </div>
+                                <div class="pl-2 space-y-1">
+                                    <h4
+                                        class=" text-xs text-white uppercase "
+                                    >
+                                        {{$page.props.auth.user.establishment}}
+                                    </h4>
+                                  
                                 </div>
                             </div>
                             <XCircleIcon
@@ -84,14 +87,14 @@ let ChangeVisibility = () => (menuIsVisible.value = !menuIsVisible.value);
                                     >
                                 </MenuNav>
                                 <MenuNav
-                                    :href="route('dashboard')"
-                                    :active="route().current('dashboard')"
+                                    :href="route('subject.index')"
+                                    :active="route().current('subject.index')"
                                     class="text-white flex gap-2 items-center w-full"
                                 >
                                     <ClipboardDocumentListIcon
                                         class="h-8 w-8"
                                     />
-                                    <span class="text-lg">Anciens sujets</span>
+                                    <span class="text-lg">Sujets et Exos</span>
                                 </MenuNav>
                                 <MenuNav
                                     :href="route('dashboard')"
